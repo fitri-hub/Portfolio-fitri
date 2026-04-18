@@ -62,7 +62,7 @@ http://localhost:3000
 
 ---
 
-## 📩 Fitur Kontak (Backend)
+##  Fitur Kontak (Backend)
 
 Pengunjung dapat mengirimkan pesan melalui form kontak. Data dikirimkan ke endpoint `/api/messages` menggunakan metode `POST` dan disimpan ke dalam database `messages.db`.
 
@@ -73,7 +73,7 @@ Pengunjung dapat mengirimkan pesan melalui form kontak. Data dikirimkan ke endpo
 
 ---
 
-## 👤 Profil Penulis
+##  Profil Penulis
 
 | | |
 |---|---|

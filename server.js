@@ -5,8 +5,7 @@ const cors = require('cors');
 
 const app = express();
 
-// Konfigurasi Database
-// Gunakan /tmp untuk Vercel agar database bisa ditulis di lingkungan serverless
+// Konfigurasi Database (Gunakan /tmp agar bisa menulis file di Vercel)
 const db = Datastore.create({ 
   filename: path.join('/tmp', 'messages.db'), 
   autoload: true 
@@ -15,8 +14,19 @@ const db = Datastore.create({
 app.use(cors());
 app.use(express.json());
 
-// 1. API untuk mengambil pesan (GET)
-// Ditaruh di atas agar tidak tertutup oleh express.static
+/**
+ * 1. PENGATURAN FILE STATIS (CSS, JS, IMAGES)
+ * Ini harus di atas rute API agar file style.css dan gambar bisa dimuat
+ */
+app.use(express.static(path.join(__dirname)));
+app.use('/css', express.static(path.join(__dirname, 'css')));
+app.use('/js', express.static(path.join(__dirname, 'js')));
+
+/**
+ * 2. API ROUTES
+ */
+
+// Ambil semua pesan
 app.get('/api/messages', async (req, res) => {
   try {
     const docs = await db.find({}).sort({ created_at: -1 });
@@ -26,7 +36,7 @@ app.get('/api/messages', async (req, res) => {
   }
 });
 
-// 2. API untuk menyimpan pesan (POST)
+// Simpan pesan baru
 app.post('/api/messages', async (req, res) => {
   const { name, email, message } = req.body;
 
@@ -53,16 +63,15 @@ app.post('/api/messages', async (req, res) => {
   }
 });
 
-// 3. Melayani file statis 
-app.use(express.static(path.join(__dirname)));
-
-// 4. Route cadangan untuk mengarahkan semua ke index.html (SPA Friendly)
+/**
+ * 3. FALLBACK ROUTE
+ * Jika alamat tidak ditemukan, tampilkan halaman utama
+ */
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Port untuk Vercel atau Lokal
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server berjalan di port ${PORT}`);
+  console.log(`Server aktif di port ${PORT}`);
 });

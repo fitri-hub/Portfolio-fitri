@@ -46,7 +46,16 @@ app.post('/api/messages', async (req, res) => {
   }
 });
 
-// Route cadangan untuk mengarahkan semua ke index.html (Penting untuk Vercel)
+app.get('/api/messages', async (req, res) => {
+  try {
+    const docs = await db.find({});
+    res.json(docs);
+  } catch (err) {
+    res.status(500).json({ error: 'Gagal mengambil data' });
+  }
+});
+
+// Route cadangan untuk mengarahkan semua ke index.html
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });

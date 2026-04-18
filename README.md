@@ -31,6 +31,9 @@ portfolio-project/
 ├── vercel.json      # Konfigurasi deployment untuk Vercel
 ├── messages.db      # File database (otomatis terbuat)
 └── Photos.jpeg      # Foto
+```
+
+---
 
 ##  Cara Menjalankan di Lokal
 

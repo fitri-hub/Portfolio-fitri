@@ -5,24 +5,31 @@ const cors = require('cors');
 
 const app = express();
 
-// Database akan otomatis terbuat sebagai file messages.db di folder root
-// Di Vercel, file ini bersifat temporary (sementara)
+// Konfigurasi Database
+// Gunakan /tmp untuk Vercel agar database bisa ditulis di lingkungan serverless
 const db = Datastore.create({ 
-  filename: path.join(__dirname, 'messages.db'), 
+  filename: path.join('/tmp', 'messages.db'), 
   autoload: true 
 });
 
 app.use(cors());
 app.use(express.json());
 
-// Melayani file statis (HTML, CSS, JS)
-app.use(express.static(path.join(__dirname)));
+// 1. API untuk mengambil pesan (GET)
+// Ditaruh di atas agar tidak tertutup oleh express.static
+app.get('/api/messages', async (req, res) => {
+  try {
+    const docs = await db.find({}).sort({ created_at: -1 });
+    res.json(docs);
+  } catch (err) {
+    res.status(500).json({ error: 'Gagal mengambil data' });
+  }
+});
 
-// API untuk menyimpan pesan dari form kontak
+// 2. API untuk menyimpan pesan (POST)
 app.post('/api/messages', async (req, res) => {
   const { name, email, message } = req.body;
 
-  // Validasi sederhana
   if (!name || !email || !message) {
     return res.status(400).json({ error: 'Mohon isi semua data ya!' });
   }
@@ -42,25 +49,20 @@ app.post('/api/messages', async (req, res) => {
     });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: 'Yah, gagal menyimpan pesan. Coba lagi nanti ya.' });
+    res.status(500).json({ error: 'Gagal menyimpan pesan.' });
   }
 });
 
-app.get('/api/messages', async (req, res) => {
-  try {
-    const docs = await db.find({});
-    res.json(docs);
-  } catch (err) {
-    res.status(500).json({ error: 'Gagal mengambil data' });
-  }
-});
+// 3. Melayani file statis (Penting: Letakkan SETELAH rute API)
+app.use(express.static(path.join(__dirname)));
 
-// Route cadangan untuk mengarahkan semua ke index.html
+// 4. Route cadangan untuk mengarahkan semua ke index.html (SPA Friendly)
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+// Port untuk Vercel atau Lokal
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server berjalan mulus di http://localhost:${PORT}`);
+  console.log(`Server berjalan di port ${PORT}`);
 });

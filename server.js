@@ -53,7 +53,7 @@ app.post('/api/messages', async (req, res) => {
   }
 });
 
-// 3. Melayani file statis (Penting: Letakkan SETELAH rute API)
+// 3. Melayani file statis 
 app.use(express.static(path.join(__dirname)));
 
 // 4. Route cadangan untuk mengarahkan semua ke index.html (SPA Friendly)

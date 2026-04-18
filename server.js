@@ -4,25 +4,54 @@ const path = require('path');
 const cors = require('cors');
 
 const app = express();
-// Database akan otomatis terbuat sebagai file messages.db
-const db = Datastore.create({ filename: 'messages.db', autoload: true });
+
+// Database akan otomatis terbuat sebagai file messages.db di folder root
+// Di Vercel, file ini bersifat temporary (sementara)
+const db = Datastore.create({ 
+  filename: path.join(__dirname, 'messages.db'), 
+  autoload: true 
+});
 
 app.use(cors());
 app.use(express.json());
+
+// Melayani file statis (HTML, CSS, JS)
 app.use(express.static(path.join(__dirname)));
 
-// API untuk menyimpan pesan
+// API untuk menyimpan pesan dari form kontak
 app.post('/api/messages', async (req, res) => {
   const { name, email, message } = req.body;
-  if (!name || !email || !message) return res.status(400).json({ error: 'Data tidak lengkap' });
-  
+
+  // Validasi sederhana
+  if (!name || !email || !message) {
+    return res.status(400).json({ error: 'Mohon isi semua data ya!' });
+  }
+
   try {
-    const newDoc = await db.insert({ name, email, message, created_at: new Date() });
-    res.status(201).json({ success: true, id: newDoc._id });
+    const newDoc = await db.insert({ 
+      name: name.trim(), 
+      email: email.trim(), 
+      message: message.trim(), 
+      created_at: new Date() 
+    });
+    
+    res.status(201).json({ 
+      success: true, 
+      message: 'Pesan berhasil terkirim!',
+      id: newDoc._id 
+    });
   } catch (err) {
-    res.status(500).json({ error: 'Gagal menyimpan' });
+    console.error(err);
+    res.status(500).json({ error: 'Yah, gagal menyimpan pesan. Coba lagi nanti ya.' });
   }
 });
 
+// Route cadangan untuk mengarahkan semua ke index.html (Penting untuk Vercel)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server aman di http://localhost:${PORT}`));
+app.listen(PORT, () => {
+  console.log(`Server berjalan mulus di http://localhost:${PORT}`);
+});

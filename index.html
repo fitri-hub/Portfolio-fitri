@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fitriani — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+ 
+<div class="cursor-glow" id="cursorGlow"></div>
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+ 
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Fitriani</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#dreams">Dreams</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+ 
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="section-label">Hi, I'm —</div>
+    <h1>Fitri<em>ani</em></h1>
+    <p class="tagline"><span id="typingText"></span><span class="cursor-blink"></span></p>
+    <p>Someone who loves the challenges of the tech world, enjoys exploring new things, and believes that every line of code can make the world a little bit better.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary">Get in Touch</a>
+      <a href="#about" class="btn-outline">Learn More</a>
+    </div>
+  </div>
+  <div class="hero-image-wrap">
+    <div class="avatar-ring-2"></div>
+    <div class="avatar-ring"></div>
+    <div class="avatar-circle">
+      <img src="mine.jpeg" alt="Fitriani" onerror="this.style.display='none';" />
+    </div>
+  </div>
+</section>
+ 
+<div class="section-divider">✦ ✦ ✦</div>
+ 
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label reveal">Get to Know Me</div>
+  <h2 class="section-title reveal">About <em style="font-style:italic;color:var(--rose)">Me</em></h2>
+  <div class="about-grid">
+    <div class="about-info-card reveal">
+      <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Fitriani</span></div>
+      <div class="info-row"><span class="info-label">Nickname</span><span class="info-value">Fitri</span></div>
+      <div class="info-row"><span class="info-label">University</span><span class="info-value">Universitas Syiah Kuala</span></div>
+      <div class="info-row"><span class="info-label">Major</span><span class="info-value">Informatics</span></div>
+      <div class="info-row"><span class="info-label">Hometown</span><span class="info-value">Bireuen, Aceh</span></div>
+      <div class="info-row"><span class="info-label">Email</span><span class="info-value" style="font-size:0.82rem;word-break:break-all;">fitr24@mhs.usk.ac.id</span></div>
+    </div>
+    <div class="about-content reveal">
+      <p>Hi! I'm Fitri, an Informatics student at Universitas Syiah Kuala, Banda Aceh. Coming from the cozy city of Bireuen, I bring a strong passion for learning into my academic journey in the world of information technology.</p>
+      <p>As an informatics student, I love how logic and creativity come together in programming. Every new challenge is an opportunity to grow, and every problem is an exciting puzzle waiting to be solved.</p>
+      <p>Outside of academics, I find peace in music because just like coding, music has its own rhythm, patterns, and beauty that never fail to spark inspiration.</p>
+    </div>
+  </div>
+</section>
+ 
+<div class="section-divider">✦ ✦ ✦</div>
+ 
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label reveal">What I Know</div>
+  <h2 class="section-title reveal">My <em style="font-style:italic;color:var(--rose)">Skills</em></h2>
+  <p class="skills-intro reveal">The core tech stack I've learned throughout my studies. </p>
+  <div class="skills-grid">
+    <div class="skill-pill reveal">
+      <div class="skill-pill-icon">🌐</div>
+      <div class="skill-pill-name">HTML</div>
+    </div>
+    <div class="skill-pill reveal reveal-delay-1">
+      <div class="skill-pill-icon">🎨</div>
+      <div class="skill-pill-name">CSS</div>
+    </div>
+    <div class="skill-pill reveal reveal-delay-2">
+      <div class="skill-pill-icon">📜</div>
+      <div class="skill-pill-name">JavaScript</div>
+    </div>
+    <div class="skill-pill reveal">
+      <div class="skill-pill-icon">🐍</div>
+      <div class="skill-pill-name">Python</div>
+    </div>
+    <div class="skill-pill reveal reveal-delay-1">
+      <div class="skill-pill-icon">🗄️</div>
+      <div class="skill-pill-name">MySQL</div>
+    </div>
+    <div class="skill-pill reveal reveal-delay-2">
+      <div class="skill-pill-icon">✏️</div>
+      <div class="skill-pill-name">Figma</div>
+    </div>
+  </div>
+</section>
+ 
+<div class="section-divider">✦ ✦ ✦</div>
+ 
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label reveal">What I've Built</div>
+  <h2 class="section-title reveal">My <em style="font-style:italic;color:var(--rose)">Projects</em></h2>
+  <p class="projects-intro reveal">A collection of projects I've worked on — from UI design to web systems and mobile apps. </p>
+  <div class="projects-grid">
+    <div class="project-card reveal">
+      <div class="project-header">
+        <div class="project-top">
+          <span class="project-icon"></span>
+          <span class="project-status status-done">Completed</span>
+        </div>
+        <h3>Pasar Nusantara</h3>
+      </div>
+      <p>A UI/UX design project for a cultural marketplace app that connects UMKM (small businesses) with consumers. Users can buy cultural products while learning about their philosophy and origins  blending economic activity with cultural preservation.</p>
+      <div class="project-footer">
+        <span class="tag">UI/UX Design</span>
+        <span class="tag">HCI</span>
+        <span class="tag">Figma</span>
+      </div>
+    </div>
+ 
+    <div class="project-card reveal">
+      <div class="project-header">
+        <div class="project-top">
+          <span class="project-icon"></span>
+          <span class="project-status status-done">Completed</span>
+        </div>
+        <h3>Catering Information System</h3>
+      </div>
+      <p>A web-based catering management system that simplifies ordering for customers and helps admins manage menus, orders, and payments. Features automated order tracking, payment verification, and inventory management.</p>
+      <div class="project-footer">
+        <span class="tag">Web App</span>
+        <span class="tag">PHP</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">HTML/CSS</span>
+      </div>
+    </div>
+ 
+    <div class="project-card reveal">
+      <div class="project-header">
+        <div class="project-top">
+          <span class="project-icon"></span>
+          <span class="project-status status-wip">In Progress</span>
+        </div>
+        <h3>PrintWatch</h3>
+      </div>
+      <p>A mobile app that tracks daily printing volume among university students and converts it into environmental impact estimates  trees affected and CO₂ produced  displayed in an analytics dashboard.</p>
+      <div class="project-footer">
+        <span class="tag">Mobile App</span>
+        <span class="tag">Analytics</span>
+        <span class="tag">Eco-Tech</span>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<div class="section-divider">✦ ✦ ✦</div>
+ 
+<!-- DREAMS -->
+<section id="dreams">
+  <div class="section-label reveal">Looking Ahead</div>
+  <h2 class="section-title reveal">My <em style="font-style:italic;color:var(--rose)">Dreams</em></h2>
+  <p class="dreams-intro reveal">Technology is not just my field of study — it's my passion and my path. </p>
+  <div class="dreams-grid">
+    <div class="dream-card reveal">
+      <span class="dream-icon"></span>
+      <h3>Exploring AI & Data</h3>
+      <p>The world of Artificial Intelligence and data science fascinates me. I aspire to use data-driven insights and machine learning to create smarter, more impactful solutions.</p>
+    </div>
+    <div class="dream-card reveal">
+      <span class="dream-icon"></span>
+      <h3>Tech for Good</h3>
+      <p>Beyond personal success, I want to use technology to give back — contributing to projects that empower communities, improve education, and create positive change in society.</p>
+    </div>
+  </div>
+</section>
+ 
+<div class="section-divider">✦ ✦ ✦</div>
+ 
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-label reveal">Moments & Memories</div>
+  <h2 class="section-title reveal">My <em style="font-style:italic;color:var(--rose)">Gallery</em></h2>
+  <p class="reveal" style="color:var(--muted);margin-top:0.5rem;font-size:1rem;">A little glimpse into my world. </p>
+  <div class="gallery-grid reveal">
+    <div class="gallery-item" onclick="openLightbox('photos.jpeg')">
+      <img src="photos.jpeg" alt="Photo 1" onerror="this.parentElement.innerHTML='<div class=\'gallery-placeholder\'><span>📷</span><p>photos.jpeg</p></div>'" />
+      <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox('photo2.jpeg')">
+      <img src="photo2.jpeg" alt="Photo 2" onerror="this.parentElement.innerHTML='<div class=\'gallery-placeholder\'><span>📷</span><p>photo2.jpeg</p></div>'" />
+      <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox('photo3.png')">
+      <img src="photo3.png" alt="Photo 3" onerror="this.parentElement.innerHTML='<div class=\'gallery-placeholder\'><span>📷</span><p>photo3.png</p></div>'" />
+      <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
+    </div>
+  </div>
+</section>
+ 
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="Photo" />
+</div>
+ 
+<div class="section-divider">✦ ✦ ✦</div>
+ 
+<!-- HOBBIES -->
+<section id="hobbies">
+  <div class="section-label reveal">Day to Day</div>
+  <h2 class="section-title reveal">Hobbies & <em style="font-style:italic;color:var(--rose)">Interests</em></h2>
+  <div class="hobbies-row">
+    <div class="hobby-pill reveal"><span class="hobby-icon">🎵</span> Listening to Music</div>
+    <div class="hobby-pill reveal"><span class="hobby-icon">📚</span> Learning New Things</div>
+    <div class="hobby-pill reveal"><span class="hobby-icon">💡</span> Exploring Technology</div>
+    <div class="hobby-pill reveal"><span class="hobby-icon">🎧</span> Podcasts & Audio</div>
+  </div>
+</section>
+ 
+<div class="section-divider">✦ ✦ ✦</div>
+ 
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label reveal">Let's Connect</div>
+  <h2 class="section-title reveal">Contact <em style="font-style:italic;color:var(--rose)">Me</em></h2>
+  <div class="contact-grid">
+ 
+    <!-- Social links -->
+    <div class="contact-text reveal">
+      <p>Have a project, want to collaborate, or just want to say hi? Reach out through any platform below — or send me a message directly! </p>
+      <div class="social-links">
+        <a href="https://github.com/fitri-hub" class="social-link" target="_blank" rel="noopener">
+          <div class="social-link-icon sl-github">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          </div>
+          <div class="social-link-meta">GitHub <span>github.com/fitri-hub</span></div>
+        </a>
+        <a href="https://www.instagram.com/fitri.am_" class="social-link" target="_blank" rel="noopener">
+          <div class="social-link-icon sl-instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </div>
+          <div class="social-link-meta">Instagram <span>@fitri.am_</span></div>
+        </a>
+        <a href="mailto:fitr24@mhs.usk.ac.id" class="social-link">
+          <div class="social-link-icon sl-email">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M20 4H4C2.9 4 2 4.9 2 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13 4 8V6L12 11 20 6V8Z"/></svg>
+          </div>
+          <div class="social-link-meta">Email <span>fitr24@mhs.usk.ac.id</span></div>
+        </a>
+      </div>
+    </div>
+ 
+    <!-- Message Form -->
+    <div class="message-form-wrap reveal">
+      <h3>Send a Message 💌</h3>
+      <p>Leave me a message and I'll get back to you!</p>
+      <form id="contactForm" autocomplete="off">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="e.g. Fitriani" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" placeholder="Write your message here..." required maxlength="1000"></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Message </button>
+        <div id="formMsg" class="form-msg"></div>
+      </form>
+    </div>
+ 
+  </div>
+</section>
+ 
+<footer>
+  <p>Made with <span>♥</span> by Fitriani · 2026</p>
+  <p style="margin-top:0.4rem;font-size:0.78rem;">Informatics Student · Universitas Syiah Kuala</p>
+</footer>
+ 
+<script src="js/main.js"></script>
+</body>
+</html>

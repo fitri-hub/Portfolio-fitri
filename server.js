@@ -21,6 +21,10 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname)));
 app.use('/css', express.static(path.join(__dirname, 'css')));
 app.use('/js', express.static(path.join(__dirname, 'js')));
+app.use('/mine.jpeg', express.static(path.join(__dirname, 'mine.jpeg')));
+app.use('/photos.jpeg', express.static(path.join(__dirname, 'photos.jpeg')));
+app.use('/photo2.jpeg', express.static(path.join(__dirname, 'photo2.jpeg')));
+app.use('/photo3.jpeg', express.static(path.join(__dirname, 'photo3.jpeg')));
 
 /**
  * 2. API ROUTES
